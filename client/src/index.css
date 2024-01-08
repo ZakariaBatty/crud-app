@@ -19,6 +19,14 @@
     );
     @apply text-white w-full;
   }
+  .custom-gradient-admin {
+    background: linear-gradient(
+      110deg,
+      theme("colors.lightPrimary"),
+      theme("colors.regularGrey")
+    );
+    @apply text-white w-full;
+  }
 }
 body {
   font-family: "Poppins", sans-serif;

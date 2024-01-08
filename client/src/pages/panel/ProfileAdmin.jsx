@@ -4,7 +4,7 @@ import { Navigate, useParams } from "react-router-dom";
 import ListingsPage from "./ListingsPage"
 
 
-export default function ProfilePage() {
+export default function ProfileAdmin() {
     let { subpage } = useParams();
     const { ready, user } = useContext(UserContext);
 
@@ -19,7 +19,6 @@ export default function ProfilePage() {
     if (ready && !user) {
         return <Navigate to="/login" />
     }
-
 
     return (
         <div>

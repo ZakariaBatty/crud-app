@@ -1,13 +1,15 @@
 import { Link } from "react-router-dom"
 import { useState } from "react";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
-export default function RegisterPage(){
+export default function RegisterPage() {
+    const navigate = useNavigate();
     const [name, setName] = useState("");
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
-    
-    async function registerUser(e){
+
+    async function registerUser(e) {
         e.preventDefault();
         try {
             await axios.post("/register", {
@@ -16,7 +18,9 @@ export default function RegisterPage(){
                 password
             });
             alert("Registration completed.")
+            navigate('/login')
         } catch {
+            console.log("step 3: Register",)
             alert("Registration failed. Please try again later.")
         }
     }
@@ -26,9 +30,9 @@ export default function RegisterPage(){
             <div className="mb-40">
                 <h1 className="text-4xl text-center mb-4">Register</h1>
                 <form className="max-w-md mx-auto" onSubmit={registerUser}>
-                    <input type="text" placeholder="John Doe" className="mb-2" value={name} onChange={(e) => setName(e.target.value)}/>
-                    <input type="email" placeholder="Your@email.com"  className="mb-2" value={email} onChange={(e) => setEmail(e.target.value)}/>
-                    <input type="password" placeholder="Password"  className="mb-2" value={password} onChange={(e) => setPassword(e.target.value)}/>
+                    <input type="text" placeholder="John Doe" className="mb-2" value={name} onChange={(e) => setName(e.target.value)} />
+                    <input type="email" placeholder="Your@email.com" className="mb-2" value={email} onChange={(e) => setEmail(e.target.value)} />
+                    <input type="password" placeholder="Password" className="mb-2" value={password} onChange={(e) => setPassword(e.target.value)} />
                     <button className="primary">Register</button>
                 </form>
                 <div className="py-2 text-gray-500">Already a member? <Link className="underline text-bl" to={"/login"}>Login</Link></div>

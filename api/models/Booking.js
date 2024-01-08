@@ -2,13 +2,12 @@ const { default: mongoose } = require("mongoose");
 const { Schema } = mongoose;
 
 const bookingSchema = new Schema({
-    listing: {type:Schema.Types.ObjectId, required: true, ref: "Listing"},
-    user: {type:Schema.Types.ObjectId, required: true},
-    checkIn: {type: Date, rqeuired: true},
-    checkOut: {type: Date, rqeuired: true},
-    name: {type: String, rqeuired: true},
-    phone: {type: String, required: true},
-    price: Number
+    user: { type: Schema.Types.ObjectId, required: true },
+    vehicleType: { type: String, rqeuired: true },
+    serialNumber: { type: Number, rqeuired: true },
+    garagiste: { type: String, rqeuired: true },
+    Dateappointment: { type: Date, rqeuired: true },
+    status: { type: String, rqeuired: true },
 })
 
 const BookingModel = mongoose.model("Booking", bookingSchema);

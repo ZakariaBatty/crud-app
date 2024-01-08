@@ -1,11 +1,11 @@
-import AccountNav from "../components/account/AccountNav";
+import AccountAdmin from "../components/account/AccountAdmin";
 import { Outlet } from "react-router-dom"
 import { useContext } from "react"
 import { UserContext } from "../UserContext"
 import { Navigate } from "react-router-dom";
 
 
-export default function AccountLayout() {
+export default function AdminAccount() {
   const { ready, user } = useContext(UserContext);
 
 
@@ -17,7 +17,7 @@ export default function AccountLayout() {
     <div className="flex ">
       <div className="flex-shrink-0 bg-gray-200">
         <div className="fixed left-0 top-0 h-full account-nav-width">
-          <AccountNav />
+          <AccountAdmin />
         </div>
       </div>
       <div className="flex-grow ml-30">
